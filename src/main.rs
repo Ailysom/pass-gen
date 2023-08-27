@@ -1,5 +1,6 @@
 use clap::Parser;
 use rand::Rng;
+use wl_clipboard_rs::copy::{MimeType, Options, Source};
 
 /// Password generator
 fn generate_password(length: usize, mut complexity: usize) -> String {
@@ -34,10 +35,24 @@ struct Args {
 	/// Password complexity
 	#[arg(short, long, default_value_t = 4)]
 	count: usize,
+
+	/// Copy to Wayland Clipboard
+	#[arg(short, long)]
+	wlcopy: bool,
 }
 
 fn main() {
 	let args = Args::parse();
 	let pass = generate_password(args.length, args.count);
 	println!("{}", pass);
+	if args.wlcopy {
+		let opts = Options::new();
+		opts.copy(
+			Source::Bytes(
+				pass.into_bytes().into()
+			),
+			MimeType::Autodetect
+		)
+		.unwrap();
+	}
 }

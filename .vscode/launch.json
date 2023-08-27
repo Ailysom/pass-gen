@@ -13,7 +13,7 @@
                     "build",
                 ]
             },
-            "args": ["-l", "5", "-c", "13"],
+            "args": ["-l", "5", "-c", "13", "-w"],
             "program": "${workspaceFolder}/target/debug/pass-gen",
             "cwd": "${workspaceFolder}",
         }

@@ -6,3 +6,4 @@ edition = "2021"
 [dependencies]
 clap = {version = "4.4.0", features = ["derive"]}
 rand = {version = "0.8.5"}
+wl-clipboard-rs = {version = "0.7.0"}
