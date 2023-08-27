@@ -1,0 +1,21 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug",
+            "cargo": {
+                "args": [
+                    "build",
+                ]
+            },
+            "args": ["-l", "5", "-c", "13"],
+            "program": "${workspaceFolder}/target/debug/pass-gen",
+            "cwd": "${workspaceFolder}",
+        }
+    ]
+}
